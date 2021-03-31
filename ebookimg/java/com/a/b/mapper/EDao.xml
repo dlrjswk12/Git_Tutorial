@@ -90,7 +90,7 @@
 		SELECT BRENTALNO, BID, RENTALLIST.BBOOKNO, BRENTALDATE, BURL, BBOOKNAME
 		FROM RENTALLIST, EBOOK
 		WHERE RENTALLIST.BBOOKNO = EBOOK.BBOOKNO
-		AND bId = #{param1}  
+		AND bId = #{param1}  order by brentalno desc
 	</select>
 	
 	<select id="ebookRentalingList" resultType = "com.a.b.dto.RentalingList">
@@ -102,7 +102,7 @@
 		<!-- TO_CHAR(BRETURNDATE, 'YYYY-MM-DD HH24-MI-SS')-->
 		FROM RENTALINGLIST, EBOOK
 		WHERE RENTALINGLIST.BBOOKNO = EBOOK.BBOOKNO
-		AND bId = #{param1}
+		AND bId = #{param1} order by brentalno desc
 	</select>
 	
 	<update id="rentalCashdown">

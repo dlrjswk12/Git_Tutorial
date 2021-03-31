@@ -41,25 +41,23 @@
 			<tr>
 			<c:if test="${sessionScope.id == boardContent_view.bId}">
 				<td><input type="text" name="bTitle"
-					value="${boardContent_view.bTitle}"></td>
+					value="제목: ${boardContent_view.bTitle}"></td>
 
-				<td>${boardContent_view.bHit}</td>
+				<td>조회수${boardContent_view.bHit}</td>
 			</c:if>	
 			</tr>
 			
 			<tr>
 			<c:if test="${sessionScope.id == boardContent_view.bId}">
-				<td colspan="20" rowspan="50" ><textarea  name="bContent">${boardContent_view.bContent}</textarea></td>
+				<td><textarea  name="bContent">${boardContent_view.bContent}</textarea></td>
 			</c:if>
-			</tr>
 			
-			<tr>
 			<c:if test="${sessionScope.id == boardContent_view.bId && boardContent_view.bBurl != null}">
 				
 				<td>
 					<img src="<spring:url 
 					value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-					height="200" >
+					height="100%" >
 					<input name="file" type="file" size="50">
 				</td>
 			</c:if>	
@@ -76,24 +74,23 @@
 			
 			<tr>
 			<c:if test="${sessionScope.id != boardContent_view.bId}">
-				<td>${boardContent_view.bTitle}</td>
+				<td>제목: ${boardContent_view.bTitle}</td>
 
-				<td>${boardContent_view.bHit}</td>
+				<td>조회수${boardContent_view.bHit}</td>
 			</c:if>	
 			</tr>
 			
 			<tr>
 			<c:if test="${sessionScope.id != boardContent_view.bId}">
-				<td colspan="20" rowspan="50">${boardContent_view.bContent}</td>
+				<td>${boardContent_view.bContent}</td>
 			</c:if>	
-			</tr>
-			<tr>
+		
 			<c:if test="${sessionScope.id != boardContent_view.bId && boardContent_view.bBurl != null}">
 					
 					<td>
 						<img src="<spring:url 
 						value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-						height="200" >
+						height="100%" >
 					</td>
 			</c:if>	
 			</tr>
@@ -114,21 +111,19 @@
 				<td>${boardContent_view.bDate}</td>
 			</tr>
 		<tr>
-			<td>${boardContent_view.bTitle}</td>
+			<td>제목: ${boardContent_view.bTitle}</td>
 
-			<td>${boardContent_view.bHit}</td>
+			<td>조회수${boardContent_view.bHit}</td>
 		</tr>
 
-		<tr>
-			<td colspan="20" rowspan="50">${boardContent_view.bContent}</td>
-		</tr>
-		
-			<tr>		
+			<tr>
+			<td>${boardContent_view.bContent}</td>
+				
 			<c:if test="${boardContent_view.bBurl != null}">
-					<td>
+					<td> 
 						<img src="<spring:url 
 						value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-						height="200" >
+						height="100%" >
 					</td>
 			</c:if>		
 			</tr>
@@ -152,14 +147,21 @@
 				<button type="button" class="btn btn-danger">
 					<a href="boardDelete?bBid=${boardContent_view.bBid}">삭제</a>
 				</button> &nbsp;&nbsp;
-			</td>	
-			</c:if>
-			<td>
 				<button type="button" class="btn btn-success">
 					<a href="boardList">목록보기</a>
 				</button> &nbsp;&nbsp; 
 			</td>
-
+			</c:if>
+		</tr>
+		
+		<tr>
+			<c:if test="${sessionScope.id != boardContent_view.bId}">
+				<td colspan="2">
+					<button type="button" class="btn btn-success">
+						<a href="boardList">목록보기</a>
+					</button> &nbsp;&nbsp; 
+				</td>
+			</c:if>
 		</tr>
 	
 		</form>

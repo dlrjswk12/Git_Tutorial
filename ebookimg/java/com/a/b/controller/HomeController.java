@@ -496,7 +496,7 @@ public class HomeController {
 		long brecash = member.getbCash() + bcash;
 		dao.cashupdown(bid, brecash);
 		session.removeAttribute("joinVo");
-		Member remember = dao.memberView(bookSearch(null, null, null));
+		Member remember = dao.memberView(bid);
 		session.setAttribute("joinVo", remember);
 
 		int newCash = (int) remember.getbCash();
