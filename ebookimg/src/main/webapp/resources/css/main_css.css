@@ -11,6 +11,10 @@ body {
 	margin: 0px;
 	
 }
+header {
+	background:black;
+	height:185px;
+}
 
 header .title{
 	float: left;
