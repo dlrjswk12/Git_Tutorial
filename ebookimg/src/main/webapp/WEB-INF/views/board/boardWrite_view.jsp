@@ -30,19 +30,11 @@
 		}
 	%>
 
-	<style type="text/css">
-#title {
-	height: 16;
-	font-family: '돋움';
-	font-size: 12;
-	text-align: center;
-}
-</style>
 	<br>
-	<b><font size="6" color="gray">글쓰기</font></b>
+	<h1 align="center">글쓰기</h1>
 	<br>
 
-	<table width="700" border="3" bordercolor="lightgray" align="center">
+	<table class="table table-bordered" width="500" cellpadding="0"  border="1">
 		<form action="boardWrite" method="post" enctype="multipart/form-data">
 
 			<input type="hidden" name="bBid" value="${boardWrite_view.bBid}">

@@ -22,17 +22,9 @@
 		String vo = (String) session.getAttribute("id");
 	%>
 
-	<style type="text/css">
-#title {
-	height: 16;
-	font-family: '돋움';
-	font-size: 12;
-	text-align: center;
-}
-</style>
 	<br>
 
-	<table width="700" border="3" bordercolor="lightgray" align="center">
+	<table border="1" align = "center" style ="width:60%" class="table table-dark table-striped table-hover">
 		<form action="boardModify" method="post" enctype="multipart/form-data">
 		
 			
@@ -57,7 +49,7 @@
 			
 			<tr>
 			<c:if test="${sessionScope.id == boardContent_view.bId}">
-				<td><textarea rows="10" name="bContent">${boardContent_view.bContent}</textarea></td>
+				<td colspan="20" rowspan="50" ><textarea  name="bContent">${boardContent_view.bContent}</textarea></td>
 			</c:if>
 			</tr>
 			
@@ -67,7 +59,7 @@
 				<td>
 					<img src="<spring:url 
 					value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-					height="300" >
+					height="200" >
 					<input name="file" type="file" size="50">
 				</td>
 			</c:if>	
@@ -92,7 +84,7 @@
 			
 			<tr>
 			<c:if test="${sessionScope.id != boardContent_view.bId}">
-				<td rowspan="40">${boardContent_view.bContent}</td>
+				<td colspan="20" rowspan="50">${boardContent_view.bContent}</td>
 			</c:if>	
 			</tr>
 			<tr>
@@ -101,7 +93,7 @@
 					<td>
 						<img src="<spring:url 
 						value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-						height="300" >
+						height="200" >
 					</td>
 			</c:if>	
 			</tr>
@@ -128,7 +120,7 @@
 		</tr>
 
 		<tr>
-			<td>${boardContent_view.bContent}</td>
+			<td colspan="20" rowspan="50">${boardContent_view.bContent}</td>
 		</tr>
 		
 			<tr>		
@@ -136,7 +128,7 @@
 					<td>
 						<img src="<spring:url 
 						value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-						height="300" >
+						height="200" >
 					</td>
 			</c:if>		
 			</tr>

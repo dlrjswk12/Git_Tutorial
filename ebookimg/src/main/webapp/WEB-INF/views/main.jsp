@@ -23,7 +23,7 @@
 	<%@include file="home.jsp"%>
 	</header>
 		<div id="container">
-			<br>
+			
 			<div class="left">
 				<h3 align="center">신규 도서</h3>
 				<table border="0" width="100%">
