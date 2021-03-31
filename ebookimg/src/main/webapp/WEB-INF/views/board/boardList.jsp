@@ -116,6 +116,7 @@ List<Board> subList = viewData.getMessageList();
 					<option value="Content">내용</option>
 					<option value="Id">작성자</option>
 				</select> 
+				
 				<input type="text" size="20" name="search" />&nbsp; 
 				<input type="submit" value="검색" />
 			</form>
