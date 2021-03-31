@@ -3,6 +3,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.a.b.dto.*" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +16,23 @@
 		List<Board> board = (List<Board>)session.getAttribute("sear_result");
 	%>
 	<header>
-
-	
-
 	<%@include file="./home.jsp"%>
-
 	</header>
 	<br>
 	<h1 align="center">검색결과</h1>
 	<br>
-	<table border='1' width="70" align="center">
+		<form action="boardsearch" method="post" align="center">
+		<select name="opt">
+			<option value="all">전체</option>
+			<option value="Title">제목</option>
+			<option value="Content">내용</option>
+			<option value="Id">작성자</option>
+		</select>
+		<input type="text" name="search" size="55%">
+		<input type="submit" value="검색">
+	</form>
+	<br>
+	<table border='1' width="70" align="center" class="table table-dark table-striped table-hover">
 	<%
 		if(board.equals(null)){
 	%>
@@ -34,25 +42,25 @@
 	<%
 		}else{
 	%>
-	
-	<tr>
+	<tr align="center">
+		<th>글번호</th>
 		<th>제목</th>
 		<th>내용</th>
 		<th>작성자</th>
 	</tr>
-	<%
-		for (Board x: board){
-	%>
-	
+		<c:forEach items="${sear_result}" var="search">
 	<tr>
-		<td align="center"><a href="boardContentview?bId=${book.getbTitle}"><%=x.getbTitle() %></td>
-		<td align="center"><%=x.getbContent() %></td>
-		<td align="center"><%=x.getbId() %></td>
+		<td align="center">${search.bBid}</td>
+		<td align="center"><a href="boardContent_view?bBid=${search.bBid}">${search.bTitle}</a></td>
+		<td align="center">${search.bContent}</td>
+		<td align="center">${search.bId}</td>
+	</tr>
+	</c:forEach>
+	</table>
 	<%
-		}}
+		}
 	%>
 	
-	</table>
 	<footer>
 		<div class="fixed">
 

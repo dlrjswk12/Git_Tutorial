@@ -35,33 +35,13 @@ List<Board> subList = viewData.getMessageList();
 		String vo = (String) session.getAttribute("id");
 	%>
 
-	<style type="text/css">
-#wrap {
-	width: 800px;
-	margin: 0 auto 0 auto;
-}
-
-#topForm {
-	text-align: right;
-}
-
-#board, #pageForm, #searchForm {
-	text-align: center;
-}
-
-#bList {
-	text-align: center;
-}
-</style>
-
-
 	<div id="wrap">
 		<br> <br>
 		<div id="topform">
 			<br>
 
 			<td colspan="5">
-				<button type="button">
+				<button type="button" class="btn btn-success">
 					<a href="boardWrite_view">글쓰기</a>
 				</button>
 			</td>
@@ -70,7 +50,7 @@ List<Board> subList = viewData.getMessageList();
 		<br>
 		<div id="board">
 
-			<table width="800" border="3" bordercolor="lightgray">
+			<table border='1' width="70" align="center" class="table table-dark table-striped table-hover">
 				<tr height="30">
 					<td>글번호</td>
 					<td>작성자</td>
@@ -96,7 +76,7 @@ List<Board> subList = viewData.getMessageList();
 
 		<!-- 페이지 넘버 부분 -->
 		<br>
-		<div id="pageForm" >
+		<div id="pageForm" align="center">
 			
 				<% if(pageNumber>10){
 			int tenNum2 = pageNumber / 10;
@@ -129,13 +109,15 @@ List<Board> subList = viewData.getMessageList();
 
 		<!-- 검색 부분 -->
 		<div id="searchForm">
-			<form method="post" action="boardsearch">
+			<form method="post" action="boardsearch" align="center">
 				<select name="opt">
+					<option value="all">전체</option>
 					<option value="Title">제목</option>
 					<option value="Content">내용</option>
 					<option value="Id">작성자</option>
-				</select> <input type="text" size="20" name="searchWord" />&nbsp; <input
-					type="submit" value="검색" />
+				</select> 
+				<input type="text" size="20" name="search" />&nbsp; 
+				<input type="submit" value="검색" />
 			</form>
 		</div>
 	</div>

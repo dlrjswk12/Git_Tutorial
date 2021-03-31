@@ -58,7 +58,7 @@ public class MessageListView {
 	public List<BComment> getMessageList1() {
 		return messageList1;
 	}
-	
+
 	public int getPageTotalCount() {
 		return pageTotalCount;
 	}

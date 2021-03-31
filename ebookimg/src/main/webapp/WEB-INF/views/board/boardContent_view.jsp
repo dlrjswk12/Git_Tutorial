@@ -67,7 +67,7 @@
 				<td>
 					<img src="<spring:url 
 					value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-					height="50" >
+					height="300" >
 					<input name="file" type="file" size="50">
 				</td>
 			</c:if>	
@@ -101,7 +101,7 @@
 					<td>
 						<img src="<spring:url 
 						value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-						height="50" >
+						height="300" >
 					</td>
 			</c:if>	
 			</tr>
@@ -136,7 +136,7 @@
 					<td>
 						<img src="<spring:url 
 						value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-						height="50" >
+						height="300" >
 					</td>
 			</c:if>		
 			</tr>

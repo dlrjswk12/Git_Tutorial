@@ -46,7 +46,7 @@ public class BoardListService implements IBoarderService{
 			currentPageNumber =0;
 			messageList = Collections.emptyList();
 		}
-		return new MessageListView(messageList, null, messageTotalCount,currentPageNumber,MESSAGE_COUNT_PER_PAGE,firstRow,endRow);
+		return new MessageListView(messageList, null,  messageTotalCount,currentPageNumber,MESSAGE_COUNT_PER_PAGE,firstRow,endRow);
 	}
  
 }

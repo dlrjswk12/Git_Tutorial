@@ -10,7 +10,7 @@
 	</select>
 	<select id="ebookList" resultType="com.a.b.dto.Ebook">
 		select *
-		from EBOOK order by BBOOKNO ASC
+		from EBOOK order by BBOOKNO desc
 	</select>
 	<select id="newebook" resultType="com.a.b.dto.Ebook">
 		select * FROM (select * from ebook order by bbookno desc) where rownum=1
@@ -135,7 +135,10 @@
 		select * from EBOOK where BCATEGORY like ('%'||#{param1}||'%')
 	</select>
 	<select id="allsearch" resultType="com.a.b.dto.Ebook">
-		select * from EBOOK where bbookname like ('%'||#{param1}||'%') or bcategory like ('%'||#{param1}||'%') or bwriter like ('%'||#{param1}||'%') or bpublisher like ('%'||#{param1}||'%')
+		select * from EBOOK where bbookname like ('%'||#{param1}||'%') or 
+		bcategory like ('%'||#{param1}||'%') or 
+		bwriter like ('%'||#{param1}||'%') or 
+		bpublisher like ('%'||#{param1}||'%')
 	</select>
 	
 
