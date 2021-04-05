@@ -94,7 +94,17 @@ public class HomeController {
 		return "main";
 	}
 	@RequestMapping(value="/main", method=RequestMethod.GET)
-	public String main(Locale locale, Model model, HttpServletRequest request) {
+	public String main(Locale locale, Model model, HttpServletRequest request, HttpSession session) {
+		model.addAttribute("request", request);
+		model.addAttribute("locale", locale);
+		EDao dao = sqlSession.getMapper(EDao.class);
+		ArrayList<Ebook> ebook = dao.newebook();
+		session.setAttribute("newbook", ebook);
+		ArrayList<Ebook> bestbook = dao.bestbook();
+		session.setAttribute("bestbook", bestbook);
+		ArrayList<Ebook> hotbook = dao.hotbook();
+		session.setAttribute("hotbook", hotbook);
+		model.addAttribute("session",session);
 		return "main";
 	}
 	
@@ -213,7 +223,8 @@ public class HomeController {
 				session.setAttribute("loginOk","ok");
 				session.setAttribute("joinVo", loginUser);
 				session.setAttribute("cash", cash);
-				
+				Grade grade = dao.grade(userId);
+				session.setAttribute("grade", grade);
 				model.addAttribute("session", session);
 				response.getWriter().print(true) ;
 			} else {
