@@ -35,6 +35,6 @@ public interface MDao {
 			final String bname,
 			final Date bBirthday);
 	
-	
+	public Grade grade(String bid);	
 }
 
