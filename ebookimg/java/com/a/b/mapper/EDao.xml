@@ -13,17 +13,17 @@
 		from EBOOK order by BBOOKNO desc
 	</select>
 	<select id="newebook" resultType="com.a.b.dto.Ebook">
-		select * FROM (select * from ebook order by bbookno desc) where rownum=1
+		select * FROM (select * from ebook order by bbookno desc)
 	</select>
 
 	<select id="bestbook" resultType="com.a.b.dto.Bestbook">
-		select a.* from (
+		select * from (
 		select e.bbookname,e.bcontent,
 		e.bwriter,e.bpublisher,e.burl,
 		e.bcategory,count(*)as coun from ebook e, rentallist r where e.bbookno = r.bbookno
 		group by e.bbookname, e.bcontent, e.bwriter, e.bpublisher, e.bcategory, 
 		e.burl order by coun desc)
-		a where rownum=1
+		
 	</select>
 	
 	<select id="hotbook" resultType="com.a.b.dto.Bestbook">
