@@ -13,8 +13,7 @@ body {
 	
 }
 header {
-	background:black;
-	height:185px;
+	background-image:url('../img/header.jpg');
 }
 
 header .title{
@@ -58,7 +57,7 @@ header .loginmenu{
 	position: relative;
 	z-index: 600;
 	top:16px;
-	background: rgba(0,0,0,0.8);
+	background: black;
 	width: 100%;
 	clear: both;
 	padding: 0px 0;
@@ -94,7 +93,7 @@ header .loginmenu{
 }
 
 .mainmenu li ul{
-	background: rgba(0,0,0,0.8);
+	background: white;
 	display: none;
 	height: auto;
 	padding: 0px;
@@ -138,21 +137,22 @@ header .loginmenu{
 }
 .left, .right, .main{
     height:100%;
+    padding-bottom:200px;
 }
 .left {
 	float:left;
-	width:25%;
+	width:33%;
 	text-align: center;
 }
 .main{
 	float:left;
-	width:50%;
+	width:33%;
     text-align: center;
-	
 }
+
 .right{
 	float:left;
-    width :25%;
+    width :33%;
     text-align: center;
 }
 
