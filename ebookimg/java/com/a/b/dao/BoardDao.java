@@ -36,4 +36,5 @@ public interface BoardDao {
 	public ArrayList<Board> contentsearch(final String bContent);
 	public ArrayList<Board> idsearch(final String bId);
 	public ArrayList<Board> allsearch(final String bTitle);
+
 }

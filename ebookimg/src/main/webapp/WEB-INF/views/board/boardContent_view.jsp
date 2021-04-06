@@ -40,8 +40,8 @@
 
 			<tr>
 			<c:if test="${sessionScope.id == boardContent_view.bId}">
-				<td><input type="text" name="bTitle"
-					value="제목: ${boardContent_view.bTitle}"></td>
+				<td>제목: <input type="text" name="bTitle"
+					value="${boardContent_view.bTitle}"></td>
 
 				<td>조회수${boardContent_view.bHit}</td>
 			</c:if>	
@@ -57,7 +57,7 @@
 				<td>
 					<img src="<spring:url 
 					value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-					height="100%" >
+					height="200" >
 					<input name="file" type="file" size="50">
 				</td>
 			</c:if>	
@@ -90,7 +90,7 @@
 					<td>
 						<img src="<spring:url 
 						value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-						height="100%" >
+						height="200" >
 					</td>
 			</c:if>	
 			</tr>
@@ -123,7 +123,7 @@
 					<td> 
 						<img src="<spring:url 
 						value ='http://121.153.134.167/ebook/${boardContent_view.bBurl}'  />" 
-						height="100%" >
+						height="200" >
 					</td>
 			</c:if>		
 			</tr>

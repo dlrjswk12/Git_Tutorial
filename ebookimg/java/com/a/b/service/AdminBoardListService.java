@@ -11,11 +11,11 @@ import org.springframework.ui.Model;
 import com.a.b.dao.BoardDao;
 import com.a.b.dto.Board;
 
-public class BoardListService implements IBoarderService{
+public class AdminBoardListService implements IBoarderService{
 
 	private SqlSession sqlSession = Constant.sqlSession;
-	private static final int MESSAGE_COUNT_PER_PAGE = 15;
-	public BoardListService() {}
+	private static final int MESSAGE_COUNT_PER_PAGE = 5;
+	public AdminBoardListService() {}
 	
 	@Override
 	public void execute(Model model) {
