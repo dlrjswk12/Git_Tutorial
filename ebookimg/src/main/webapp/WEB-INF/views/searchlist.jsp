@@ -66,5 +66,9 @@
 	<%@include file="./bottom.jsp"%>
 		</div>
 	</footer>
+	<br>
+	<br>
+	<br>
+	<br>
 </body>
 </html>
