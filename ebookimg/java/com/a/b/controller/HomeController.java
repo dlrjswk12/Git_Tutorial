@@ -61,6 +61,7 @@ import com.a.b.dao.EDao;
 import com.a.b.dao.MDao;
 import com.a.b.dto.Board;
 import com.a.b.dto.Ebook;
+import com.a.b.dto.Grade;
 import com.a.b.dto.Member;
 
 
@@ -94,7 +95,17 @@ public class HomeController {
 		return "main";
 	}
 	@RequestMapping(value="/main", method=RequestMethod.GET)
-	public String main(Locale locale, Model model, HttpServletRequest request) {
+	public String main(Locale locale, Model model, HttpServletRequest request, HttpSession session) {
+		model.addAttribute("request", request);
+		model.addAttribute("locale", locale);
+		EDao dao = sqlSession.getMapper(EDao.class);
+		ArrayList<Ebook> ebook = dao.newebook();
+		session.setAttribute("newbook", ebook);
+		ArrayList<Ebook> bestbook = dao.bestbook();
+		session.setAttribute("bestbook", bestbook);
+		ArrayList<Ebook> hotbook = dao.hotbook();
+		session.setAttribute("hotbook", hotbook);
+		model.addAttribute("session",session);
 		return "main";
 	}
 	
@@ -203,7 +214,8 @@ public class HomeController {
 				session.setAttribute("loginOk","ok");
 				session.setAttribute("joinVo", loginUser);
 				session.setAttribute("cash", cash);
-				
+				Grade grade = dao.grade(userId);
+				session.setAttribute("grade", grade);
 				model.addAttribute("session", session);
 				response.getWriter().print(true) ;
 			} else {
@@ -261,7 +273,7 @@ public class HomeController {
 		session.removeAttribute("loginOk");
 		session.removeAttribute("joinVo");
 		session.removeAttribute("cash");
-// 		session.invalidate();
+//		session.invalidate();
 		System.out.println("로그아웃.세션초기화");
 		return "redirect:main";
 	}

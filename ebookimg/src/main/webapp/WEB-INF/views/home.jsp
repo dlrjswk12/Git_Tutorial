@@ -45,7 +45,14 @@ $(document).ready(function() {
 			<img src="<spring:url value ='/resources/img/title.png'/>" height="100px" alt="타이틀">
 		</div>
 		<div class="loginmenu">
-			<h3 class="y"><font color="white"><%=id%></font></h3>
+			<%
+				if (id.equals("GUEST")){ %>
+				<h3 align="right">
+				<font color="white"><%=id%></font></h3>
+			<% }else{ %>
+				<h3 align="right">
+				<font color="lightblue"><%=id %></font></h3>
+				<%}%>
 	<%
  	if (id.equals("GUEST")) { %>
 				<button class="btn btn-primary" onclick="location.href='login'">로그인</button>
@@ -61,7 +68,7 @@ $(document).ready(function() {
 						<%
 					}else if(!id.equals("GUEST")) {
 						%>
-				<button class="btn btn-primary" onclick="location.href='memdata?bId=<%=id%>'">회원정보</button>
+				<button class="btn btn-primary" onclick="location.href='memdata?bId=<%=id%>'">정보/충전</button>
 						<%
 					}
 				%>
@@ -72,7 +79,7 @@ $(document).ready(function() {
 					<li><h3><a href="list">도서 목록</a></h3>
 						<ul class="sub">
 							<li><a href="list">일반</a>
-							<li><a href="">로맨스/판타지</a>
+							<li><a href="list?bcategory=판타지">로맨스/판타지</a>
 						</ul>
 					</li>
 					<li><h3><a href="rentalinglist">대여 목록</a></h3>
@@ -84,11 +91,10 @@ $(document).ready(function() {
 						<li><h3><a href="boardList">게시판</a></h3>
 						<ul class="sub">
 							<li><a href="boardList">자유 게시판</a>
-							<li><a href="">요청 게시판</a>
 							<li><a href="">내 글 확인</a>
 						</ul>
 					</li>
-					<li><h3><a href="cashup">잔액확인/충전</a></h3></li>
+					<li><h3><a href="cashup">공지사항</a></h3></li>
 		</ul>
 	</nav>
 	</div>

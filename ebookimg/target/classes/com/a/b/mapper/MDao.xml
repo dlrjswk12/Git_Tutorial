@@ -48,4 +48,14 @@
 		select BPW from MEMBER where BID = #{param1} and BNAME = #{param2} and BBIRTHDAY = #{param3}
 	</select>
 	
+	<select id="grade" resultType="com.a.b.dto.Grade">
+		select bid,count(brentalno) as totalrental,
+	case
+		when count(rentallist.brentalno) > 1000 then 'VVIP'
+		when count(rentallist.brentalno) > 500 then 'VIP'
+		when count(rentallist.brentalno) > 100 then 'GOLD'
+		when count(rentallist.brentalno) > 50 then 'SILVER'
+		else 'NORMAL' end as grade
+		from rentallist where bid=#{param1} group by bid
+	</select>
 </mapper>

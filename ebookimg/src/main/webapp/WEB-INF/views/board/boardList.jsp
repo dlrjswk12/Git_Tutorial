@@ -135,6 +135,10 @@ List<Board> subList = viewData.getMessageList();
 	</div>
 	<br>
 	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<footer>
 		<div class="fixed">
 	<%@include file="../bottom.jsp"%>

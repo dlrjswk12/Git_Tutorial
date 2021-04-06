@@ -6,26 +6,20 @@
 <%@ page import="com.a.b.dto.*" %>
 <html>
 <head>
-	<%
-	Member vo = (Member)session.getAttribute("joinVo");
-	if(vo==null){
-		%>
-		<script>
-		alert('로그인 후 가능합니다.');
-		document.location.href="main";
-		</script>
-		<%
-	}%>
 <link rel="stylesheet" href="resources/css/main_css.css">
 <title>금액 충전</title>
 </head>
 <body>
 	<%@include file="home.jsp"%>
+<% 
+if (id=="GUEST"){
+	%>
+<script>
+		alert('로그인 후 이용가능합니다.');
+		document.location.href="login";
+		</script>
+		<%} %>
 	<br/>
-	<br/>
-	<br/>
-	<h1 align="center">금액 확인</h1>
-	<h3 align="center">현재 잔액 : ${joinVo.bCash}</h3>
 	<br/>
 	<br/>
 	<h1 align="center">금액 충전</h1>

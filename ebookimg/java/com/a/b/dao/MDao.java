@@ -2,6 +2,8 @@ package com.a.b.dao;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+
+import com.a.b.dto.Grade;
 import com.a.b.dto.Member;
 public interface MDao {
 	public Member memberView(String bid);
@@ -35,6 +37,6 @@ public interface MDao {
 			final String bname,
 			final Date bBirthday);
 	
-	
+	public Grade grade(String bid);	
 }
 
