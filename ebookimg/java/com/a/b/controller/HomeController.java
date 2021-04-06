@@ -91,6 +91,8 @@ public class HomeController {
 		session.setAttribute("newbook", ebook);
 		ArrayList<Ebook> bestbook = dao.bestbook();
 		session.setAttribute("bestbook", bestbook);
+		ArrayList<Ebook> hotbook = dao.hotbook();
+		session.setAttribute("hotbook", hotbook);
 		model.addAttribute("session",session);
 		return "main";
 	}
